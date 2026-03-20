@@ -195,41 +195,23 @@
                 letter.style.display = 'block';
                 letter.style.animation = 'pullOut 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
 
-                // ==================================================
-                // === DEĞİŞİKLİK BURADA: ŞEKER SAÇILMA EFEKTİ ===
-                // ==================================================
                 const duration = 3 * 1000;
                 const end = Date.now() + duration;
                 const candyEmojis = ['🍬', '🍭', '🍫', '✨'];
 
                 (function frame() {
-                    // Sol taraftan şekerler
                     confetti({
-                        particleCount: 3,
-                        angle: 60,
-                        spread: 55,
-                        origin: { x: 0 },
-                        shapes: ['text'],
-                        text: candyEmojis,
-                        scalar: 1.5 // Emojileri biraz büyütelim
+                        particleCount: 3, angle: 60, spread: 55, origin: { x: 0 },
+                        shapes: ['text'], text: candyEmojis, scalar: 1.5
                     });
-                    // Sağ taraftan şekerler
                     confetti({
-                        particleCount: 3,
-                        angle: 120,
-                        spread: 55,
-                        origin: { x: 1 },
-                        shapes: ['text'],
-                        text: candyEmojis,
-                        scalar: 1.5 // Emojileri biraz büyütelim
+                        particleCount: 3, angle: 120, spread: 55, origin: { x: 1 },
+                        shapes: ['text'], text: candyEmojis, scalar: 1.5
                     });
-
                     if (Date.now() < end) {
                         requestAnimationFrame(frame);
                     }
                 }());
-                // ==================================================
-                // ==================================================
 
             }, 500);
         }
